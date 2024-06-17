@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.customermanagmentsystem.CustomersManagmentSystemsController">
    <children>
       <Pane layoutX="225.0" prefHeight="350.0" prefWidth="225.0">
          <children>
-            <Button layoutX="75.0" layoutY="265.0" mnemonicParsing="false" text="Log in" textFill="#8bc6a0" />
-            <PasswordField layoutX="34.0" layoutY="215.0" promptText="password" />
-            <TextField layoutX="34.0" layoutY="165.0" promptText="user name" />
+            <Button fx:id="loginBtn" layoutX="75.0" layoutY="265.0" mnemonicParsing="false" onAction="#login" text="Log in" textFill="#8bc6a0" />
+            <PasswordField fx:id="password" layoutX="34.0" layoutY="215.0" onAction="#login" promptText="password" />
+            <TextField fx:id="username" layoutX="34.0" layoutY="165.0" onAction="#login" promptText="user name" />
             <Label layoutX="24.0" layoutY="95.0" text="Welcome back!" textFill="#8bc6a0">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
