@@ -12,32 +12,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="441.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="683.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.customermanagmentsystem.HomeController">
    <children>
-      <Pane prefHeight="452.0" prefWidth="201.0">
+      <Pane layoutY="-3.0" prefHeight="693.0" prefWidth="257.0">
          <children>
-            <ImageView fitHeight="104.0" fitWidth="121.0" layoutX="37.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="104.0" fitWidth="121.0" layoutX="81.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-database-64.png" />
                </image>
             </ImageView>
-            <Label layoutX="16.0" layoutY="149.0" text="Customer Managment System">
+            <Label layoutX="44.0" layoutY="136.0" text="Customer Managment System">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="50.0" layoutY="267.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="  Add  " />
-            <Button layoutX="50.0" layoutY="210.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="Search" />
-            <Button layoutX="50.0" layoutY="326.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="Delete" />
+            <Button fx:id="add_btn" layoutX="90.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="77.0" text="  Add  " />
+            <Button fx:id="search_btn" layoutX="90.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="77.0" text="Search" />
+            <Button fx:id="delete_btn" layoutX="90.0" layoutY="390.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="77.0" text="Delete" />
+            <Button fx:id="update_btn" layoutX="90.0" layoutY="455.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="77.0" text="Update" />
+            <Button fx:id="logout_btn" layoutX="14.0" layoutY="646.0" mnemonicParsing="false" onAction="#logout" prefHeight="33.0" prefWidth="77.0" text="Log out" />
+            <Button fx:id="home_btn" layoutX="90.0" layoutY="195.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="Home" />
          </children></Pane>
-      <Pane layoutX="201.0" prefHeight="452.0" prefWidth="511.0">
+      <Pane layoutX="257.0" prefHeight="687.0" prefWidth="787.0">
          <children>
-            <TableView prefHeight="323.0" prefWidth="511.0">
+            <TableView fx:id="table_view" prefHeight="542.0" prefWidth="787.0">
               <columns>
-                  <TableColumn prefWidth="75.0" text="Costumer No" />
-                <TableColumn prefWidth="75.0" text="Last name" />
-                <TableColumn prefWidth="75.0" text="First name" />
-                  <TableColumn prefWidth="75.0" text="ZIP" />
+                  <TableColumn fx:id="customer_no_column" prefWidth="75.0" text="Costumer No" />
+                <TableColumn fx:id="last_name_column" prefWidth="75.0" text="Last name" />
+                <TableColumn fx:id="fist_name_column" prefWidth="75.0" text="First name" />
+                  <TableColumn fx:id="zip_column" prefWidth="75.0" text="ZIP" />
               </columns>
                <opaqueInsets>
                   <Insets />
@@ -46,16 +49,16 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Pane layoutY="323.0" prefHeight="130.0" prefWidth="511.0">
+            <Pane layoutY="542.0" prefHeight="149.0" prefWidth="787.0">
                <children>
-                  <Label layoutX="26.0" layoutY="25.0" text="customer no" />
-                  <TextField fx:id="customer_no" layoutX="99.0" layoutY="21.0" />
-                  <Label layoutX="39.0" layoutY="70.0" text="first name" />
-                  <TextField fx:id="first_name" layoutX="99.0" layoutY="65.0" />
-                  <Label layoutX="306.0" layoutY="69.0" prefHeight="17.0" prefWidth="18.0" text="zip" />
-                  <TextField fx:id="zip" layoutX="332.0" layoutY="65.0" />
-                  <Label layoutX="273.0" layoutY="25.0" text="last name" />
-                  <TextField fx:id="last_name" layoutX="332.0" layoutY="21.0" />
+                  <Label layoutX="59.0" layoutY="25.0" text="Customer no" />
+                  <TextField fx:id="customer_no" layoutX="153.0" layoutY="21.0" />
+                  <Label layoutX="66.0" layoutY="90.0" text="First name" />
+                  <TextField fx:id="first_name" layoutX="153.0" layoutY="86.0" />
+                  <Label layoutX="489.0" layoutY="90.0" prefHeight="17.0" prefWidth="18.0" text="ZIP" />
+                  <TextField fx:id="zip" layoutX="534.0" layoutY="86.0" />
+                  <Label layoutX="456.0" layoutY="25.0" text="Last name" />
+                  <TextField fx:id="last_name" layoutX="534.0" layoutY="21.0" />
                </children>
             </Pane>
          </children>

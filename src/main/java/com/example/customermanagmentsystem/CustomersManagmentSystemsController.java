@@ -39,12 +39,17 @@ public class CustomersManagmentSystemsController implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result ;
 
-    private double x = 0;
-    private double y = 0;
     public void login(){
         String sql = "SELECT * FROM admin WHERE username = ? and password = ?";
-
+        Alert alert;
         connect = Database.connectDb();
+        if(connect == null){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Can not establish connection to DB!");
+            alert.showAndWait();
+        }
 
          try {
              prepare = connect.prepareStatement(sql);
@@ -52,7 +57,6 @@ public class CustomersManagmentSystemsController implements Initializable {
              prepare.setString(2, password.getText());
 
              result = prepare.executeQuery();
-             Alert alert;
 
              if(username.getText().isEmpty() || password.getText().isEmpty()){
                  alert = new Alert(Alert.AlertType.ERROR);
@@ -62,29 +66,11 @@ public class CustomersManagmentSystemsController implements Initializable {
                  alert.showAndWait();
              }else {
                  if(result.next()){
-                     alert = new Alert(Alert.AlertType.INFORMATION);
-                     alert.setTitle("Information Message");
-                     alert.setHeaderText(null);
-                     alert.setContentText("Successfully Login");
-                     alert.showAndWait();
-
                      loginBtn.getScene().getWindow().hide();
                      Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
                      Stage stage = new Stage();
                      Scene scene = new Scene(root);
 
-                     /*root.setOnMousePressed((MouseEvent event) -> {
-                         x = event.getScreenX();
-                         y = event.getScreenY();
-                     });
-
-                     root.setOnMouseDragged((MouseEvent event) ->{
-                         stage.setX(event.getScreenX() - x);
-                         stage.setY(event.getScreenY() - y);
-                     });*/
-
-
-                     stage.initStyle(StageStyle.UNIFIED);
                      stage.setTitle("Customer Managment System");
                      stage.setScene(scene);
                      stage.show();

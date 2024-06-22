@@ -1,5 +1,7 @@
 package com.example.customermanagmentsystem;
 
+import javafx.scene.control.Alert;
+
 import java.sql.DriverManager;
 import java.sql.Connection;
 
@@ -14,7 +16,7 @@ public class Database {
         }
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/customersmanagmentsystem", "username", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/customersmanagmentsystem", "user93", "Schauspieler1993@");
             return connection;
         }catch (Exception e){e.printStackTrace();}
         return connection;
